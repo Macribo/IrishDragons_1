@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+ 
+    align-items: center;
+    justify-content: center;
+    text-align:center;
+}
+
+
+.leftCtrl{
+
+    /* border: 2px solid green; */
+    /* background-image: url('./images/frame_glass.png'); */
+    width:100%;
+        min-height: 293px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.gamediv1 {
+    
+    /* border: 2px solid green; */
+    background-image: url('./images/screen_zero.png');
+    width: 100%;
+    min-height: 293px;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    /*grid-row-start: 2; */
+}
+
+
+.rightCtrl{
+    
+    /* border: 2px solid blue; */
+    /* background-image: url('./images/frame_glass.png'); */
+    width: 100%;
+    min-height: 293px;
+    background-repeat: no-repeat;
+    background-size: cover;
+ 
+}
