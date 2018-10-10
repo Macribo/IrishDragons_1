@@ -32,7 +32,7 @@ app.use("/", express.static(__dirname + "/"));
 app.get("/about", function (req, res) {
     
     fs.readFile(__dirname + "/about.json", function (err, data) {
-
+        
         if (err) 
             return res.send({ error : err});
 
