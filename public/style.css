@@ -63,7 +63,7 @@ h1{
 .equipCardDiv {
     
     border: 2px solid green; 
-    /* background-image: url('./images/screen_equip.png'); */
+    background-image: url('./images/bg1.png');
     width: 100%;
     min-height: 293px;
     background-repeat: no-repeat;
@@ -125,6 +125,9 @@ position:absolute;
         top:101%;
     }
 #btnEquipCards{
+
+    
+
     position:absolute;
     background-image:url('./images/btnEquip.png');
   min-height: 180px;
@@ -137,13 +140,14 @@ position:absolute;
 
 }
 #carousel-card-choose{
-    left:88%;
-    top:10%;
+    left:141%;
+    top:-44%;
 }
 #equiped{
     left:40%;
-    background-image:url('./images/frame_glass.png');
-    width: 50%;
+    background-image:url('./images/armed.png');
+    width: 100%;
+
     min-height: 293px;
     background-repeat: no-repeat;
     background-size: cover;

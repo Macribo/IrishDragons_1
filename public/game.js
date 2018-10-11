@@ -66,7 +66,8 @@ $('#btn-right').click(function(){
 
 $('#btnEquipCards').click(function(){
     console.log("equip cards btn clicked");
-
+    var attackCard = null;
+    var defenseCard = null;
     $('.gamediv2').fadeOut().queue(function() {
         
         $( '.equipCardDiv' ).removeClass( "hidden" ).dequeue();
@@ -90,7 +91,43 @@ $('#card-btn-left').click(function(){
     console.log("next card");
     $("#carousel-card-choose").carousel('next');
 
-})
+});
+
+$("#carousel-card-choose").click(function(){
+     attackCard = $('data-id').val();
+    
+    for(let i =0;i<cards.length; i++){
+        if (cards[i].id == attackCard){
+            let cardDiv = document.createElement('div');
+
+            // Class name of the div. Only the first one is active at the beggining
+            if (i === 0)
+                cardDiv.className = 'item active';
+            else
+                cardDiv.className = 'item';
+
+            // Setting the id of the card as data id for future use
+            cardDiv.setAttribute("data-id", cards[i].id);
+
+            // creating now an image tag
+            let imageTag = document.createElement('img');
+
+            // Setting the class data
+            imageTag.setAttribute("class", "d-block w-100");
+
+            // Setting the source of the image
+            imageTag.setAttribute("src", cards[i].image);
+
+            // Setting the title
+            imageTag.setAttribute("title", cards[i].name);
+
+            // Appending the image to this card Div
+            cardDiv.append(imageTag);
+            $(".attackCard").append();
+        }
+    }
+
+});
 
 
 
