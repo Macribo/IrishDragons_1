@@ -46,6 +46,17 @@
     /*grid-row-start: 2; */
 }
 
+.combatDiv {
+    
+    /* border: 2px solid green; */
+    background-image: url('./images/screen_combat.png');
+    width: 100%;
+    min-height: 293px;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    /*grid-row-start: 2; */
+}
 
 
 .rightCtrl{

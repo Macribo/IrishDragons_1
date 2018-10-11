@@ -26,4 +26,34 @@ $(document).ready(function () {
         });
     });
 
+
+/*
+ .o88b.  .d88b.  .88b  d88. d8888b.  .d8b.  d888888b 
+d8P  Y8 .8P  Y8. 88'YbdP`88 88  `8D d8' `8b `~~88~~' 
+8P      88    88 88  88  88 88oooY' 88ooo88    88    
+8b      88    88 88  88  88 88~~~b. 88~~~88    88    
+Y8b  d8 `8b  d8' 88  88  88 88   8D 88   88    88    
+ `Y88P'  `Y88P'  YP  YP  YP Y8888P' YP   YP    YP    
+*/
+let cards =["rock1","paper1","scissors1"];
+let playerCard= selectedAttack;
+beginCombat(playerCard, enemyCard);
+
+function beginCombat(playerCard, enemyCard){
+
+
+
+
+
+
+
+
+    
+}
+
+
+
+
+
+
 });
