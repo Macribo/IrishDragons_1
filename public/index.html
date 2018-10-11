@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
 
-<head><!-- Latest compiled and minified CSS -->
+<head>
+    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    
+
     <!-- jQuery library -->
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-    
+
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
+
 
     <meta charset="utf-8">
     <title>Crannóg v0.0.1</title>
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 
@@ -25,35 +26,54 @@
 
     <div class="container">
 
+
+
         <div class="row">
-            <h1 class="tideal col-12">
+            <h1 class="tideal col-sm-12">
                 Crannóg
             </h1>
         </div>
 
 
         <div class="row">
-            <h2 class="col-12">version 0.0.1</h2>
+            <h2 class="col-sm-12">version 0.0.1</h2>
         </div>
         <div class="row">
-            <div class="col-1 leftCtrl"></div>
-            <div class="col-10 gamediv1 hidden">
+            <div class="col-sm-1 leftCtrl"></div>
+            <div class="col-sm-10 gamediv1 hidden">
                 <h1>Crannog</h1>
                 <button type="submit" id="about">About</button>
                 <br>
                 <br>
-                <div class="about-info" name="about-info" id="aboutInfo"  style="display: none"></div>
+                <div class="about-info" name="about-info" id="aboutInfo" style="display: none"></div>
             </div>
-            <div class="col-1  rightCtrl"></div>
 
-            <div class="col-10 equipCardDiv hidden"></div>
 
-            <div class="col-10 combatDiv">
-                <h2 class="combatInfo">Round 1: </h2>
-                <div id="playerCard">  </div>
-                <div id="enemyCard">  </div>
+            <div class="col-sm-10 equipCardDiv">
+
+                <div class="row">
+                    <div class="col-sm-6">At the moment this div is empty</div>
+
+                    <div class="col-sm-6 carousel slide" id="carousel-card-choose" >
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img class="d-block w-100" src="images/s_001.png" alt="First slide">
+                            </div>
+                            <div class="item">
+                                <img class="d-block w-100" src="images/p_001.png" alt="Second slide">
+                            </div>
+                            <div class="item">
+                                <img class="d-block w-100" src="images/r_001.png" alt="Third slide">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
+        <div class="col-sm-1  rightCtrl"></div>
+    </div>
+    </div>
     </div>
 
 
