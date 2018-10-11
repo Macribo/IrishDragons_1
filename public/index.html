@@ -15,10 +15,10 @@
     <meta charset="utf-8">
     <title>Crannóg v0.0.1</title>
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./style.css"> -->
+    <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
-
+    <script src="main.js"></script>
 </head>
 
 <body>
@@ -28,7 +28,7 @@
 
 
 
-        <div class="row">
+        <!-- <div class="row">
             <h1 class="tideal col-sm-12">
                 Crannóg
             </h1>
@@ -37,24 +37,38 @@
 
         <div class="row">
             <h2 class="col-sm-12">version 0.0.1</h2>
-        </div>
+        </div> -->
         <div class="row">
-            <div id="btn-left" class="leftCtrl"></div>
-            <div class="col-sm-10 gamediv1 hidden">
+
+            <div class="col-sm-10 gamediv1 ">
                 <h1>Crannog</h1>
-                <button type="submit" id="about">About</button>
+                <button id="play" title="play"></button>
+
+                <button type="submit" id="about" title="about"></button>
                 <br>
                 <br>
-                <div class="about-info" name="about-info" id="aboutInfo" style="display: none"></div>
+                <div class="about-info" name="about-info" id="aboutInfo" style=""></div>
+
             </div>
 
 
-            <div class="col-sm-10 equipCardDiv">
+            <div class="col-sm-10 gamediv2 hidden">
+                <div id="btn-left" class="leftCtrl "></div>
+                <div id="hero"></div>
+                <div id="enemy"></div>
+                <div id="background1"></div>
+                <div id="btn-right" class="rightCtrl"></div>
+            </div>
+
+
+
+
+            <div class="col-sm-10 equipCardDiv hidden">
 
                 <div class="row">
                     <div class="col-sm-6" id="equiped">Equiped</div>
 
-                    <div class="col-sm-6 carousel slide" id="carousel-card-choose" >
+                    <div class="col-sm-6 carousel slide" id="carousel-card-choose">
                         <div class="carousel-inner">
                             <div class="item active">
                                 <img class="d-block w-100" src="images/s_001.png" alt="First slide">
@@ -71,7 +85,7 @@
                 </div>
             </div>
         </div>
-        <div id="btn-right" class="rightCtrl"></div>
+       
     </div>
     </div>
     </div>

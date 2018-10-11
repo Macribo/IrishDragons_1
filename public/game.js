@@ -1,8 +1,15 @@
 $(document).ready(function () {
     console.log('Document is loaded.');
 
+$('#play').click(function(){
+    console.log("start game!");
+    $('.gamediv1').fadeOut().queue(function() {
+        $( '.gamediv2' ).removeClass( "hidden" ).dequeue();
+      });
+        
+   
 
-
+});
 
     $("#about").click(() => {
         $.ajax({
@@ -36,20 +43,17 @@ Y8b  d8 `8b  d8' 88  88  88 88   8D 88   88    88
  `Y88P'  `Y88P'  YP  YP  YP Y8888P' YP   YP    YP    
 */
 let cards =["rock1","paper1","scissors1"];
-let playerCard= selectedAttack;
-beginCombat(playerCard, enemyCard);
+// let playerCard= selectedAttack;
+// beginCombat(playerCard, enemyCard);
 
-function beginCombat(playerCard, enemyCard){
-
-
+// function beginCombat(playerCard, enemyCard){
 
 
 
 
 
 
-    
-}
+
 
 
 

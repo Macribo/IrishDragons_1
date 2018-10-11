@@ -33,7 +33,7 @@ function validateJSON(body) {
 app.use("/", express.static(__dirname + "/"));
 
 app.get("/about", function (req, res) {
-    
+    console.log("I hear click.");
     fs.readFile(__dirname + "/about.json", function (err, data) {
 
         if (err) 

@@ -9,7 +9,7 @@ $(document).ready(function () {
             contentType: 'application/json; charset=utf-8',
             success  : function (data) {
                 
-                $("#aboutInfo").append(data.about);
+                $("#aboutInfo").append(data[0].about);
                 $("#aboutInfo").show();
             },
             error    : function (xhr, status, error) {

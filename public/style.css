@@ -1,10 +1,22 @@
+
+@font-face {
+    font-family: dragon;
+    src: url('./fonts/Breathe\ Fire.otf');
+}
+
 * {
     margin: 0;
     padding: 0;
 }
 
+h1{
+    font-size:4em;
+    padding-bottom:20px;
+    font-family:dragon;
+}
+
 .container {
- 
+    display:inline-block;
     align-items: center;
     justify-content: center;
     text-align:center;
@@ -24,13 +36,25 @@
 
 .gamediv1 {
     
-    /* border: 2px solid green; */
+    border: 2px solid green;
     /* background-image: url('./images/screen_zero.png'); */
     width: 100%;
     min-height: 293px;
     background-repeat: no-repeat;
     background-size: contain;
 
+    /*grid-row-start: 2; */
+}
+.gamediv2 {
+    border: 2px solid green;
+    /* background-image: url('./images/screen_zero.png'); */
+    width: 100%;
+    min-height: 293px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display:flex;
+    flex-direction: row;
+/* z-index:200; */
     /*grid-row-start: 2; */
 }
 
@@ -53,6 +77,7 @@ position:absolute;
     background-size: contain;
     z-index: 10;
     left:-2%;
+    top:20%;
 }
 
 
@@ -66,6 +91,12 @@ position:absolute;
         left:85%;
         top:20%;
     }
+
+
+
+    #hero{}
+    #enemy{}
+    #background1{}
 
 #equiped{
     background-image:url('./images/frame_glass.png');
@@ -101,4 +132,23 @@ position:absolute;
 
 .hidden{
     display:none;
+}
+
+#about{
+    font-size:2em;
+    width: 17%;
+    min-height: 181px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image:url('./images/about.png');
+}
+
+
+#play{
+    font-size:2em;
+    width: 17%;
+    min-height: 181px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image:url('./images/play.png');
 }
