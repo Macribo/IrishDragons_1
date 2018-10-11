@@ -4,6 +4,7 @@ $(document).ready(function () {
 $('#play').click(function(){
     console.log("start game!");
     $('.gamediv1').fadeOut().queue(function() {
+        
         $( '.gamediv2' ).removeClass( "hidden" ).dequeue();
       });
         
@@ -51,12 +52,45 @@ let cards =["rock1","paper1","scissors1"];
 
 
 
+//game div 2 is active:
+
+$('#btn-right').click(function(){
+
+    console.log("btn right is clicked");
+
+    $('#hero').animate({left: '50%'});
+    setTimeout(function(){console.log("time!")
+        $('#enemy1').animate({top:'16%'})},500);
+        $('#btnEquipCards').removeClass("hidden");
+});
+
+$('#btnEquipCards').click(function(){
+    console.log("equip cards btn clicked");
+
+    $('.gamediv2').fadeOut().queue(function() {
+        
+        $( '.equipCardDiv' ).removeClass( "hidden" ).dequeue();
+      });
+        
+  
+});
 
 
+//card selector active:
+$("#carousel-card-choose").attr("data-ride","carousel");
+$("#carousel-card-choose").carousel({interval:false});
 
+$('#card-btn-right').click(function(){
+    console.log("next card");
+    $("#carousel-card-choose").carousel('prev');
 
+});
 
+$('#card-btn-left').click(function(){
+    console.log("next card");
+    $("#carousel-card-choose").carousel('next');
 
+})
 
 
 
