@@ -4,6 +4,8 @@ $(document).ready(function () {
     var cards = [];
 
     $("#about").click(() => {
+
+
         $.ajax({
             url: 'http://localhost:3000/about',
             type: 'GET',
@@ -11,7 +13,9 @@ $(document).ready(function () {
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
 
-                $("#aboutInfo").append(data.about);
+                $("#aboutInfo").html(data[0].about);
+                console.log('about', data[0].about);
+                console.log('about', data);
                 $("#aboutInfo").show();
             },
             error: function (xhr, status, error) {

@@ -1,16 +1,36 @@
 $(document).ready(function () {
     console.log('Document is loaded.');
-   
+
+    //fade in splash screen:
+    setTimeout(function () {
+        $('h1').animate({
+            opacity: 1
+        });
+        setTimeout(function () {
+            $('.buttonMenu').animate({
+                opacity: 1
+
+
+            });
+
+        }, 1000);
+    }, 250);
+
+    //start game music:
     var themeTuneIntro = new Audio("./audio/GoT8bit1.mp3");
     themeTuneIntro.play();
     themeTuneIntro.addEventListener('ended', function () {
         this.currentTime = 0;
         this.play();
     }, false);
+
+
+    //start game:
     $('#play').click(function () {
         console.log("start game!");
         $('#play').fadeOut();
         $('#about').fadeOut();
+        $('.about-info').fadeOut();
         $('.gamediv1').fadeOut().queue(function () {
             themeTune.play();
             themeTuneIntro.pause();
@@ -24,7 +44,12 @@ $(document).ready(function () {
 
 
     });
+
+    //switch to game main tune:
     var themeTune = new Audio("./audio/GoT8bit.mp3");
+
+
+    //see 'about' document:
     $("#about").click(() => {
         $.ajax({
             url: 'http://localhost:3000/about',
@@ -32,7 +57,9 @@ $(document).ready(function () {
             dataType: 'JSON',
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
-
+                $('h1').animate({
+                    opacity: 0.3
+                });
                 $("#aboutInfo").append(data.about);
                 $("#aboutInfo").show();
             },
@@ -75,13 +102,17 @@ $(document).ready(function () {
             left: '50%'
         });
         setTimeout(function () {
-            console.log("time!")
+            console.log("time!");
             $('#enemy1').animate({
                 top: '38%'
             })
         }, 500);
-        $('.btnEquipCards').fadeIn();
-        $('#btnEquipCards').removeClass("hidden");
+        setTimeout(function () {
+            $('.btnEquipCards').fadeIn();
+            $('#btnEquipCards').removeClass("hidden");
+        }, 1250);
+
+
     });
 
     $('#btnEquipCards').click(function () {
@@ -95,7 +126,7 @@ $(document).ready(function () {
 
 
     });
-  
+
 
     //card selector active:
     $("#carousel-card-choose").attr("data-ride", "carousel");

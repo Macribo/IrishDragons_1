@@ -22,13 +22,13 @@
 </head>
 
 <body>
-        <script>
-                var audio = new Audio("./audio/GoT8bit1.mp3");
+    <script>
+        var audio = new Audio("./audio/GoT8bit1.mp3");
                 var audio = new Audio("./audio/GoT8bit.mp3");
             </script>
-<div class="buttonMenu">
+    <div class="buttonMenu">
         <button id="btnEquipCards" class="hidden  btnStyle" title="choose your cards!"></button>
-        <button id="play" class="btnStyle"title="play"></button>
+        <button id="play" class="btnStyle" title="play"></button>
 
         <button type="submit" class="btnStyle" id="about" title="about"></button>
         <br>
@@ -36,7 +36,7 @@
         <div class="about-info" name="about-info" id="aboutInfo" style=""></div>
 
 
-</div>
+    </div>
     <div class="container">
 
 
@@ -55,15 +55,16 @@
 
             <div class="col-sm-12 gamediv1">
                 <h1>Crannog</h1>
-              
+
             </div>
 
 
             <div class="col-sm-10 gamediv2 hidden">
-                   
+
 
                 <div id="btn-left hidden" class="leftCtrl"></div>
                 <div id="hero"></div>
+                <div id="bridge"></div>
                 <div id="enemy1"></div>
                 <div id="btn-right" class="rightCtrl"></div>
             </div>
@@ -72,12 +73,13 @@
 
 
             <div class="col-sm-10 equipCardDiv hidden">
-                    <div id="card-btn-left" class="leftCtrl "></div>
+                <div id="card-btn-left" class="leftCtrl "></div>
                 <div class="row">
                     <div class="col-sm-6" id="equiped">
-                  <div class="attackCard"></div>
-                  <div class="defenseCard"></div>
-                        Equiped</div>
+                        <div class="attackCard"></div>
+                        <div class="defenseCard"></div>
+                        Equiped
+                    </div>
 
                     <div class="col-sm-6 carousel slide" id="carousel-card-choose">
                         <div class="carousel-inner">
@@ -92,18 +94,20 @@
                             </div> -->
                         </div>
                     </div>
+                    <!-- <div id="glass"></div> -->
+
 
                 </div>
 
                 <div id="card-btn-right" class="rightCtrl"></div>
             </div>
         </div>
-       
+
     </div>
     </div>
     </div>
 
-<div class="bottomMask"></div>
+    <div class="bottomMask"></div>
 </body>
 
 <script src="game.js"></script>

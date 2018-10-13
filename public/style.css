@@ -9,6 +9,7 @@
 }
 
 h1 {
+    opacity: 0.01;
     font-size: 20em;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -22,11 +23,12 @@ h1 {
 
 .buttonMenu {
     display: inline-block;
+    opacity: 0.01;
     align-items: center;
     justify-content: center;
     text-align: center;
     background-color: white;
-    border: 2px solid rgb(224, 224, 224);
+    /* border: 2px solid rgb(224, 224, 224); */
     position: fixed;
     top: 0;
     left: 0;
@@ -135,11 +137,21 @@ h1 {
     top: 101%;
 }
 
-
-
 #carousel-card-choose {
     left: 141%;
     top: -44%;
+}
+
+#glass {
+    position: absolute;
+    background-image: url('./images/frame_glass.png');
+    min-height: 180px;
+    min-width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 10;
+    left: 33%;
+    top: 20%;
 }
 
 #equiped {
@@ -182,6 +194,17 @@ h1 {
     background-image: url('./images/about.png');
 }
 
+.about-info {
+    color: blue;
+    position: absolute;
+    width: 600px;
+    top: 150%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 50;
+    /* border: 2px solid green; */
+}
+
 #play {
     font-size: 2em;
     width: 17%;
@@ -189,7 +212,6 @@ h1 {
     background-size: contain;
     background-image: url('./images/play.png');
 }
-
 
 #btnEquipCards {
     position: absolute;
