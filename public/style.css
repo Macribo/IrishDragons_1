@@ -8,6 +8,13 @@
     padding: 0;
 }
 
+/* disable horozontal scrolling */
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 h1 {
     opacity: 0.01;
     font-size: 20em;
@@ -78,8 +85,8 @@ h1 {
 }
 
 .equipCardDiv {
-    border: 2px solid green;
-    background-image: url('./images/bg1.png');
+    /* border: 2px solid green; */
+    /* background-image: url('./images/bg1.png'); */
     width: 100%;
     min-height: 293px;
     background-repeat: no-repeat;
@@ -113,6 +120,18 @@ h1 {
     top: 20%;
 }
 
+#bridge {
+    position: absolute;
+    background-image: url('./images/bridge1.png');
+    min-height: 300px;
+    min-width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 1;
+    left: 0%;
+    top: 0%;
+}
+
 #hero {
     position: absolute;
     background-image: url('./images/hero.png');
@@ -128,7 +147,7 @@ h1 {
 #enemy1 {
     position: absolute;
     background-image: url('./images/enemy1.png');
-    min-height: 180px;
+    min-height: 192px;
     min-width: 100%;
     background-repeat: no-repeat;
     background-size: contain;
@@ -138,29 +157,62 @@ h1 {
 }
 
 #carousel-card-choose {
+    min-height: 336px;
+    min-width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('./images/card_frame_1.png');
     left: 141%;
-    top: -44%;
+    top: -52%;
 }
+
+.carousel-inner {
+    max-height: 100%;
+    max-width: 21%;
+    margin-top: 46px;
+    padding: 0px;
+}
+
+/* Fixed size for the available cards */
+
+.card {}
 
 #glass {
     position: absolute;
     background-image: url('./images/frame_glass.png');
-    min-height: 180px;
+    min-height: 299px;
     min-width: 100%;
     background-repeat: no-repeat;
     background-size: contain;
     z-index: 10;
-    left: 33%;
-    top: 20%;
+    left: 70%;
+    top: 4%;
 }
 
 #equiped {
     left: 40%;
     background-image: url('./images/armed.png');
-    width: 100%;
-    min-height: 293px;
+    width: 512px;
+    height: 380px;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+}
+
+.attackCard, .defenseCard {
+    width: 45%;
+}
+
+.defenseCard {
+    left: 55%;
+}
+
+.attackCard, .equip-card {
+    height: 293px;
+}
+
+.equip-card {
+    width: 100%;
+    object-fit: cover;
 }
 
 .combatDiv {
@@ -238,7 +290,81 @@ h1 {
     position: fixed;
     top: 444px;
     left: 0;
-    height: 183px;
+    height: 200px;
     width: 100%;
     z-index: 600;
+}
+
+.combatMode {
+    /* border: 2px solid red; */
+    /* background-image: url('./images/bg1.png'); */
+    width: 100%;
+    min-height: 293px;
+    background-repeat: repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    /* z-index:200; */
+    /*grid-row-start: 2; */
+}
+
+#playerAttackCard {
+    position: absolute;
+    background-image: url('./images/combat/p_001_attack.png');
+    min-height: 334px;
+    min-width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 10;
+    left: -30%;
+    top: -7%;
+}
+
+#enemyDefendCard {
+    position: absolute;
+    background-image: url('./images/combat/enemy_attack_1.png');
+    min-height: 340px;
+    min-width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 10;
+    left: 152%;
+    top: -7%;
+}
+
+#playerDefendCard {
+    position: absolute;
+    background-image: url('./images/combat/s_001_attack.png');
+    min-height: 334px;
+    min-width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 10;
+    left: -30%;
+    top: -7%;
+}
+
+#enemyAttackCard {
+    position: absolute;
+    background-image: url('./images/combat/enemy_attack_1.png');
+    min-height: 340px;
+    min-width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 10;
+    left: 152%;
+    top: -7%;
+}
+
+#battleText {
+    color: rgb(255, 7, 7);
+    position: absolute;
+    width: 800px;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 50;
+    font-family: dragon;
+    font-size: 12em;
+    text-shadow: 3px 3px 5px rgb(0, 0, 0);
 }

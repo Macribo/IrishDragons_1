@@ -24,8 +24,8 @@
 <body>
     <script>
         var audio = new Audio("./audio/GoT8bit1.mp3");
-                var audio = new Audio("./audio/GoT8bit.mp3");
-            </script>
+        var audio = new Audio("./audio/GoT8bit.mp3");
+    </script>
     <div class="buttonMenu">
         <button id="btnEquipCards" class="hidden  btnStyle" title="choose your cards!"></button>
         <button id="play" class="btnStyle" title="play"></button>
@@ -35,6 +35,11 @@
         <br>
         <div class="about-info" name="about-info" id="aboutInfo" style=""></div>
 
+
+    </div>
+    <div class="map-view">
+
+        <div class="location-map"></div>
 
     </div>
     <div class="container">
@@ -63,8 +68,8 @@
 
 
                 <div id="btn-left hidden" class="leftCtrl"></div>
-                <div id="hero"></div>
                 <div id="bridge"></div>
+                <div id="hero"></div>
                 <div id="enemy1"></div>
                 <div id="btn-right" class="rightCtrl"></div>
             </div>
@@ -72,7 +77,7 @@
 
 
 
-            <div class="col-sm-10 equipCardDiv hidden">
+            <div class="col-sm-10 equipCardDiv  hidden">
                 <div id="card-btn-left" class="leftCtrl "></div>
                 <div class="row">
                     <div class="col-sm-6" id="equiped">
@@ -82,8 +87,8 @@
                     </div>
 
                     <div class="col-sm-6 carousel slide" id="carousel-card-choose">
-                        <div class="carousel-inner">
-                            <!-- <div class="item active">
+                        <!-- <div class="carousel-inner"> -->
+                        <!-- <div class="item active">
                                 <img class="d-block w-100" src="images/s_001.png" alt="First slide">
                             </div>
                             <div class="item">
@@ -92,9 +97,9 @@
                             <div class="item">
                                 <img class="d-block w-100" src="images/r_001.png" alt="Third slide">
                             </div> -->
-                        </div>
+                        <!-- </div> -->
                     </div>
-                    <!-- <div id="glass"></div> -->
+                    <div id="glass"></div>
 
 
                 </div>
@@ -103,9 +108,18 @@
             </div>
         </div>
 
+
+        <div class="combatMode hidden">
+
+            <div id="playerAttackCard"></div>
+            <div id="enemyDefendCard"></div>
+
+            <div id="playerDefendCard"></div>
+            <div id="enemyAttackCard"></div>
+            <h2 id="battleText">Round 1</h2>
+        </div>
     </div>
-    </div>
-    </div>
+
 
     <div class="bottomMask"></div>
 </body>

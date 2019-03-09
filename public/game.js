@@ -75,20 +75,6 @@ $(document).ready(function () {
     });
 
 
-    /*
-     .o88b.  .d88b.  .88b  d88. d8888b.  .d8b.  d888888b 
-    d8P  Y8 .8P  Y8. 88'YbdP`88 88  `8D d8' `8b `~~88~~' 
-    8P      88    88 88  88  88 88oooY' 88ooo88    88    
-    8b      88    88 88  88  88 88~~~b. 88~~~88    88    
-    Y8b  d8 `8b  d8' 88  88  88 88   8D 88   88    88    
-     `Y88P'  `Y88P'  YP  YP  YP Y8888P' YP   YP    YP    
-    */
-    let cards = ["rock1", "paper1", "scissors1"];
-    // let playerCard= selectedAttack;
-    // beginCombat(playerCard, enemyCard);
-
-    // function beginCombat(playerCard, enemyCard){
-
 
 
 
@@ -119,6 +105,7 @@ $(document).ready(function () {
         console.log("equip cards btn clicked");
         var attackCard = null;
         var defenseCard = null;
+        $('.bottomMask').fadeOut();
         $('.gamediv2').fadeOut().queue(function () {
 
             $('.equipCardDiv').removeClass("hidden").dequeue();
@@ -182,6 +169,95 @@ $(document).ready(function () {
 
     });
 
+    //card selector active:
+    $("#carousel-card-choose").attr("data-id", "carousel");
+    $("#carousel-card-choose").carousel({
+        interval: false
+    });
 
+
+    $('#card-btn-right').click(function () {
+        console.log("next card");
+        $("#carousel-card-choose").carousel('prev');
+
+    });
+
+
+    $('#card-btn-left').click(function () {
+        console.log("previous card");
+        $("#carousel-card-choose").carousel('next');
+
+    });
+
+    //temp card selector 
+    $('#glass').click(function () {
+
+        $('.equipCardDiv').fadeOut();
+        startCombat();
+
+    });
 
 });
+
+function startCombat() {
+    let playerScore = 0;
+    let enemyScore = 0;
+    $('.combatMode').removeClass('hidden');
+    console.log("start combat!");
+
+    setTimeout(function () {
+        $('#enemyDefendCard').animate({
+            left: '52%',
+
+        });
+        $('#playerAttackCard').animate({
+            left: '30%'
+        });
+
+        $('#battleText').fadeOut();
+        setTimeout(function () {
+            $('#playerAttackCard').fadeOut();
+            $('#enemyDefendCard').fadeOut();
+
+        }, 1000);
+
+    }, 1200);
+
+    setTimeout(function () {
+        $('#battleText').html("Round 2");
+
+        $('#battleText').fadeIn();
+
+
+    }, 3000)
+    setTimeout(function () {
+        round2();
+    }, 3000)
+}
+
+function round2() {
+    setTimeout(function () {
+        $('#battleText').html("Player wins!");
+
+        $('#battleText').fadeIn();
+    }, 3000);
+    setTimeout(function () {
+        $('#enemyAttackCard').animate({
+            left: '52%',
+
+        });
+        $('#playerDefendCard').animate({
+            left: '30%'
+        });
+
+        $('#battleText').fadeOut();
+        setTimeout(function () {
+            $('#playerDefendCard').fadeOut();
+            $('#enemyAttackCard').fadeOut();
+
+        }, 1000);
+
+
+    }, 1200);
+    console.log("round2");
+}

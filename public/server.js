@@ -52,169 +52,167 @@ app.get("/about", function (req, res) {
 
 app.get("/cards", function (req, res) {
 
-            if (!req.query.level || !req.query.level) {
-                fs.readFile(__dirname + "/cards.json", function (err, data) {
+    if (!req.query.level || !req.query.level) {
+        fs.readFile(__dirname + "/cards.json", function (err, data) {
 
-                    if (err)
-                        return res.send({
-                            error: err
-                        });
-
-                    // 3. Parse JSON
-                    let cards = JSON.parse(data);
-
-                    // 4. Send the array to the user
-                    return res.send(cards);
-
+            if (err)
+                return res.send({
+                    error: err
                 });
-            } else {
-                fs.readFile(__dirname + "/cards.json", function (err, data) {
 
-                    var found = false;
+            // 3. Parse JSON
+            let cards = JSON.parse(data);
 
-                    var cards = [];
+            // 4. Send the array to the user
+            return res.send(cards);
 
-                    if (err)
-                        return res.send({
-                            error: err
-                        });
+        });
+    } else {
+        fs.readFile(__dirname + "/cards.json", function (err, data) {
 
-                    // 3. Parse JSON
-                    let currCards = JSON.parse(data);
+            var found = false;
 
-                    // 4. Check for the product with the right term
-                    for (let index = 0; index < currCards.length; index++) {
+            var cards = [];
 
-                        let card = currCards[index];
-
-                        if ((card.type == req.query.type) && (card.level == req.query.level)) {
-                            found = true;
-                            cards.push(card);
-                        }
-                    }
-                    if (!found)
-                        return res.send("You have no cards of level " + req.query.level + ".");
-                    else
-                        return res.send(cards);
+            if (err)
+                return res.send({
+                    error: err
                 });
+
+            // 3. Parse JSON
+            let currCards = JSON.parse(data);
+
+            // 4. Check for the product with the right term
+            for (let index = 0; index < currCards.length; index++) {
+
+                let card = currCards[index];
+
+                if ((card.type == req.query.type) && (card.level == req.query.level)) {
+                    found = true;
+                    cards.push(card);
+                }
             }
+            if (!found)
+                return res.send("You have no cards of level " + req.query.level + ".");
+            else
+                return res.send(cards);
+        });
+    }
 
 
 
 
+});
+
+
+app.get("/initcards", function (req, res) {
+
+
+
+
+
+    fs.readFile(__dirname + "/cards.json", function (err, data) {
+
+        var found = false;
+
+        var cards = [];
+
+        if (err)
+            return res.send({
+                error: err
+            });
+
+        // 3. Parse JSON
+        let currCards = JSON.parse(data);
+
+        // 4. Check for the product with the right term
+        for (let index = 0; index < currCards.length; index++) {
+
+            let card = currCards[index];
+
+            if (card.level == "1") {
+                if (card.type == "rock") {
+                    found = true;
+                    cards.push(card);
+                } else if (card.type == "scissor") {
+                    found = true;
+                    cards.push(card);
+                } else if (card.type == "paper") {
+                    found = true;
+                    cards.push(card);
+                }
+                if (cards.length === 3)
+                    break;
+            }
+        }
+        if (!found)
+            return res.send("You have no cards of level " + req.query.level + ".");
+        else
+            return res.send(cards);
+    });
+
+
+
+
+});
+
+
+app.post("/products", function (req, res) {
+
+    if (!req.body.type || !req.body.name || !req.body.level || !req.body.imageURL)
+        return res.send({
+            error: "Missing one of the elements! Type, name and image are mandatory."
         });
 
 
-            app.get("/initcards", function (req, res) {
+    // 1. Read request
+    let newCard = {
+        id: randomString.generate(20),
+        type: req.body.type,
+        name: req.body.name,
+        level: req.body.level,
+        image: req.body.imageURL
 
+    }
 
+    // 2. Read the file
+    fs.readFile(__dirname + "/cards.json", function (err, data) {
 
-
-
-                fs.readFile(__dirname + "/cards.json", function (err, data) {
-
-                    var found = false;
-
-                    var cards = [];
-
-                    if (err)
-                        return res.send({
-                            error: err
-                        });
-
-                    // 3. Parse JSON
-                    let currCards = JSON.parse(data);
-
-                    // 4. Check for the product with the right term
-                    for (let index = 0; index < currCards.length; index++) {
-
-                        let card = currCards[index];
-
-                        if (card.level == "1") {
-                            if (card.type == "rock") {
-                                found = true;
-                                cards.push(card);
-                            }
-                            else if (card.type == "scissor") {
-                                found = true;
-                                cards.push(card);
-                            } 
-                            else if (card.type == "paper") {
-                                found = true;
-                                cards.push(card);
-                            }
-                            if (cards.length === 3)
-                                break;
-                        }
-                    }
-                    if (!found)
-                        return res.send("You have no cards of level " + req.query.level + ".");
-                    else
-                        return res.send(cards);
-                });
-
-
-
-
+        if (err) {
+            res.send({
+                error: err
             });
+        }
+        if (ACCESS_CONTROLL_ALLOW_ORIGIN) {
+            res.header("Access-Control-Allow-Origin", "*");
+        }
+
+        // 3. Parse JSON. This calls a validation function
+        let currCards = validateJSON(data);
+
+        // At the beginning: []
+        // Later is : [{}, {}, {}, ...]
 
 
-            app.post("/products", function (req, res) {
+        // 4. Push the user into the array
+        currCards.push(newCard);
 
-                if (!req.body.type || !req.body.name || !req.body.level || !req.body.imageURL)
+
+        fs.writeFile(__dirname + "/cards.json", JSON.stringify(currCards), "utf-8",
+
+            function () {
+                if (err)
                     return res.send({
-                        error: "Missing one of the elements! Type, name and image are mandatory."
+                        error: err
                     });
 
+            }
+        );
 
-                // 1. Read request
-                let newCard = {
-                    id: randomString.generate(20),
-                    type: req.body.type,
-                    name: req.body.name,
-                    level: req.body.level,
-                    image: req.body.imageURL
+    });
 
-                }
+    return res.send(newCard);
+    // return res.send({ message : "Product has been saved on the file."});
+});
 
-                // 2. Read the file
-                fs.readFile(__dirname + "/cards.json", function (err, data) {
-
-                    if (err) {
-                        res.send({
-                            error: err
-                        });
-                    }
-                    if (ACCESS_CONTROLL_ALLOW_ORIGIN) {
-                        res.header("Access-Control-Allow-Origin", "*");
-                    }
-
-                    // 3. Parse JSON. This calls a validation function
-                    let currCards = validateJSON(data);
-
-                    // At the beginning: []
-                    // Later is : [{}, {}, {}, ...]
-
-
-                    // 4. Push the user into the array
-                    currCards.push(newCard);
-
-
-                    fs.writeFile(__dirname + "/cards.json", JSON.stringify(currCards), "utf-8",
-
-                        function () {
-                            if (err)
-                                return res.send({
-                                    error: err
-                                });
-
-                        }
-                    );
-
-                });
-
-                return res.send(newCard);
-                // return res.send({ message : "Product has been saved on the file."});
-            });
-
-            app.listen(3000);
+app.listen(3000);
